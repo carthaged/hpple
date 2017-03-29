@@ -1,1 +1,13 @@
 language: objective-c
+osx_image: xcode8.3
+script:
+- carthage build --no-skip-current --platform iOS
+- carthage archive TFHpple
+deploy:
+  provider: releases
+  api_key:
+    secure: HK/4EBuyrkppU4sq2kn/iH9pIJdnNh/q6OrdWki0LMTIQ9ib6dPDjhKmFgwq61suSyKnZiF6jpuBWE5BQR0rYs5AgwK5sTi2SkX7puUkmsywBYPP71Fi4tkeXBILHBTuKZn6ztY5vQvG4AP06k6rLtdmG5rHR2iDT2BJH5tvmf8mxq1w8jYqQiVAZWsKv5Ra9W4G/98ZkAdMaJiiJ39F567o/GwKD5QHTPpC2XMylzPyVlHndUohxr41zc8C7Qjm/WWF1pLGo6jwlUeesPbl9rHjrdkRgQ4BTEJW29g5/muet5d8LPucasjLZCidWdBP7T2wWxKvIws8SMKyn8PFhIL2ILwPJSALS91PZgiAeYvDYSB2E/sKGWUym31eZbxY4jlyFTs0OJrGJBjCwj8RiIC0IJYfo3f6dGsjfZRo0lY9sWEdX6OD0DetzbeWWjHQ2V8Wjkb/1MDQYTg3Ydbv4LBU8VmkEQREXQxQIrIXnCNqX1Dax5xDKABG3rZ+711G1XcOIQIHkveOKOkzqM1MC5uWVlgpGWAmJaVPfBo4ugzRY2+pSBiGNesjA7f/otfL7GCTZEh9D/HjgB8K/2fV48zouPde0nCtLw5Gq+eG4kZLNNpDCRpx89lWccGhW3KrBryuu+ouIO0ToBFizkcmlgLCjv3ySvFaFWalyCblQmw=
+  file: TFHpple.framework.zip
+  skip_cleanup: true
+  on:
+    tags: true
